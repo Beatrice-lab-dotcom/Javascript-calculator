@@ -1,48 +1,141 @@
 body{
     background-color: gainsboro;
+    max-width:1440px;
+    margin:0 auto;
+    font-family: "Poppins"; 
 }
+
+
+.nav-bar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.nav-bar h1:hover {
+    color: grey;
+    cursor: pointer;
+    transition: all 0.3s ease;  
+}
+    /* Show hamburger on mobile */
+    .hamburger{
+        display:block;
+        padding-right:10px;
+        z-index: 999;
+        position: relative;
+    }
+
+    /* Hide menu on mobile unless opened */
+    .nav-links{
+        display:none;
+        flex-direction: column;
+        width: 100%;
+        background:white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    /* Menu visible only when .open class is added */
+    .nav-links.open{
+        display:flex;
+    }
+
+    /* Make links full width */
+    .nav-links li{
+        padding: 12px 0;
+        width:100%;
+    }
+
+
+
+
+/* Calculator container */
 .container{
     width: 100%;
-    height:100vh;
+    min-height:100vh;
     background:aliceblue;
     display:flex;
     align-items:center;
-    justify-content: center;
+    justify-content:center;
 }
-.calculator{
-    background:rgb(186, 91, 241);
-    padding:20px;
-    border-radius: 10px;
 
+.calculator{
+    background:rgba(0, 0, 0, 0.456);
+    padding:20px;
+    border-radius:10px;
 }
+
 .calculator form input{
     border:0;
-    outline: 0;
+    outline:0;
     width:60px;
     height:60px;
-    border-radius: 10px;
-    box-shadow:-8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius:10px;
+    box-shadow:-8px -8px 15px rgba(255,255,255,0.1),
+                 5px 5px 15px rgba(0,0,0,0.2);
     background:transparent;
     font-size:20px;
-    color: #fff;
-    cursor: pointer;
+    color:#fff;
+    cursor:pointer;
     margin:10px;
+}
 
-}
 form .display{
-display: flex;
-justify-content: flex-end;
-margin:20px 0;
+    display:flex;
+    justify-content:flex-end;
+    margin:20px 0;
 }
+
 form .display input{
     text-align:right;
     flex:1;
-    font-size: 45px;
+    font-size:45px;
     box-shadow:none;
 }
+
 form input.equal{
     width:145px;
 }
+
 form input.operator{
-color:#33ffd8;
+    color:#33ffd8;
+}
+@media (min-width:768px){
+
+    /* NAVBAR */
+
+/* Desktop menu visible */
+.nav-links{
+    background-color: none;
+    display:flex;
+    flex-direction: row;
+    gap: 15px;
+    list-style:none;
+}
+
+/* Hover effects */
+.nav-links li:hover{
+    color: grey;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger{
+    display:none;
+    cursor:pointer;
+    width:34px;
+}
+
+.hamburger .bar{
+    width:100%;
+    height:4px;
+    background-color:grey;
+    margin:5px 0;
+}
 }
